@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"strings"
 )
 
 // App struct
@@ -34,4 +35,21 @@ func (a *App) Reverse(str string) string {
 	}
 
 	return string(runes)
+}
+
+func (a *App) CheckString(str string) string {
+	lowerstr := strings.ToLower(str)
+	a_count := strings.Count(lowerstr, "a")
+	b_count := strings.Count(lowerstr, "b")
+
+	is_a_even := a_count%2 == 0
+	is_b_odd := b_count%2 != 0
+
+	result := "NO"
+
+	if is_a_even && is_b_odd {
+		result = "YES"
+	}
+
+	return result
 }

@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import logo from './assets/images/logo-universal.png';
 import './App.css';
-import {Greet, Reverse} from "../wailsjs/go/main/App";
+import {Greet, Reverse, CheckString} from "../wailsjs/go/main/App";
 import { Button } from './components/ui/button';
 
 function App() {
@@ -18,12 +18,17 @@ function App() {
         Reverse(name).then(updateResultText);
     }
 
+    function checkString() {
+        CheckString(name).then(updateResultText)
+    }
+
     return (
         <div id="App">
             <h1 className="text-3xl font-bold underline">
       Hello world!
     </h1>
     <Button onClick={reverse}>Reverse</Button>
+    <Button onClick={checkString}>Check</Button>
             <img src={logo} id="logo" alt="logo"/>
             <div id="result" className="result">{resultText}</div>
             <div id="input" className="input-box">
