@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import logo from './assets/images/logo-universal.png';
 import './App.css';
-import {Greet} from "../wailsjs/go/main/App";
+import {Greet, Reverse} from "../wailsjs/go/main/App";
 import { Button } from './components/ui/button';
 
 function App() {
@@ -14,12 +14,16 @@ function App() {
         Greet(name).then(updateResultText);
     }
 
+    function reverse() {
+        Reverse(name).then(updateResultText);
+    }
+
     return (
         <div id="App">
             <h1 className="text-3xl font-bold underline">
       Hello world!
     </h1>
-    <Button>Test</Button>
+    <Button onClick={reverse}>Reverse</Button>
             <img src={logo} id="logo" alt="logo"/>
             <div id="result" className="result">{resultText}</div>
             <div id="input" className="input-box">
