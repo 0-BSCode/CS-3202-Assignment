@@ -15,6 +15,9 @@ function App() {
 
     return (
         <div id="App">
+            <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
             <img src={logo} id="logo" alt="logo"/>
             <div id="result" className="result">{resultText}</div>
             <div id="input" className="input-box">
