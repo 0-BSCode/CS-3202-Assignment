@@ -28,6 +28,12 @@ export function TabsDemo() {
     const [reverseInput, setReverseInput] = useState("I LOVE AUTOMATA")
     const [validateInput, setValidateInput] = useState("aabbb")
     const [resultText, setResultText] = useState("");
+    const [currentTab, setCurrentTab] = useState(TabsEnum.REVERSE);
+
+    function switchTab(tab: TabsEnum) {
+        setResultText("");
+        setCurrentTab(tab);
+    }
 
     function reverse() {
             Reverse(reverseInput).then((result) => setResultText(result));
@@ -38,10 +44,10 @@ export function TabsDemo() {
         }
 
   return (
-    <Tabs defaultValue={TabsEnum.REVERSE} className="w-[400px]">
+    <Tabs value={currentTab} className="w-[400px] py-4">
       <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value={TabsEnum.REVERSE}>Reverse</TabsTrigger>
-        <TabsTrigger value={TabsEnum.VALIDATE}>Validate</TabsTrigger>
+        <TabsTrigger value={TabsEnum.REVERSE} onClick={() => switchTab(TabsEnum.REVERSE)}>Reverse</TabsTrigger>
+        <TabsTrigger value={TabsEnum.VALIDATE} onClick={() => switchTab(TabsEnum.VALIDATE)}>Validate</TabsTrigger>
       </TabsList>
       <TabsContent value={TabsEnum.REVERSE}>
         <Card>
@@ -80,7 +86,7 @@ export function TabsDemo() {
             <Button className="w-full" onClick={checkString} disabled={!validateInput.length}>Submit</Button>
             <div className="space-y-1">
               <Label htmlFor="new">Output</Label>
-              <Input id="new" value={resultText} />
+              <Input id="new" value={resultText} readOnly />
             </div>
           </CardContent>
         </Card>

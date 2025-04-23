@@ -24,13 +24,13 @@ function App() {
     }
 
     return (
-        <main className='flex flex-col p-4 items-center'>
-            <h1 className="text-3xl text-center font-bold pb-3">
-                CS-3202 Programming Assignment
+        <main className='flex flex-col p-4 pt-8 items-center'>
+            <h1 className="text-3xl text-center font-bold">
+                CS 3202 String Parser
             </h1>
                 <TabsDemo />
             <section>
-                <p>Made by <a href="https://github.com/0-BSCode">0-BSCode</a></p>
+                <p>Made by <a href="https://github.com/0-BSCode" className='underline'>0-BSCode</a></p>
             </section>
         </main>
     )
