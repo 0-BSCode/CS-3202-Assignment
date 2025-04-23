@@ -53,7 +53,7 @@ export function MainTab() {
           <CardHeader>
             <CardTitle>Reverse String</CardTitle>
             <CardDescription>
-              Enter a string and click "Submit" to output it in reverse.
+              Enter a string and click "Submit" to output each word in reverse.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
