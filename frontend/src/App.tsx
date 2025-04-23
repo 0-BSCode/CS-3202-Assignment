@@ -3,6 +3,7 @@ import logo from './assets/images/logo-universal.png';
 import './App.css';
 import {Greet, Reverse, CheckString} from "../wailsjs/go/main/App";
 import { Button } from './components/ui/button';
+import { TabsDemo } from './components/Maintab';
 
 function App() {
     const [resultText, setResultText] = useState("Please enter your name below 👇");
@@ -23,19 +24,15 @@ function App() {
     }
 
     return (
-        <div id="App">
-            <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    <Button onClick={reverse}>Reverse</Button>
-    <Button onClick={checkString}>Check</Button>
-            <img src={logo} id="logo" alt="logo"/>
-            <div id="result" className="result">{resultText}</div>
-            <div id="input" className="input-box">
-                <input id="name" className="input" onChange={updateName} autoComplete="off" name="input" type="text"/>
-                <button className="btn" onClick={greet}>Greet</button>
-            </div>
-        </div>
+        <main className='flex flex-col p-4 items-center'>
+            <h1 className="text-3xl text-center font-bold pb-3">
+                CS-3202 Programming Assignment
+            </h1>
+                <TabsDemo />
+            <section>
+                <p>Made by <a href="https://github.com/0-BSCode">0-BSCode</a></p>
+            </section>
+        </main>
     )
 }
 
