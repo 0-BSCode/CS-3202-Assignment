@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -24,7 +23,7 @@ export enum TabsEnum {
 }
 
 
-export function TabsDemo() {
+export function MainTab() {
     const [reverseInput, setReverseInput] = useState("I LOVE AUTOMATA")
     const [validateInput, setValidateInput] = useState("aabbb")
     const [resultText, setResultText] = useState("");

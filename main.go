@@ -17,7 +17,7 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "final-assignment",
+		Title:  "CS 3202 String Parser",
 		Width:  420,
 		Height: 600,
 		AssetServer: &assetserver.Options{
