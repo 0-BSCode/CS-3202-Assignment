@@ -3,6 +3,4 @@
 
 export function CheckString(arg1:string):Promise<string>;
 
-export function Greet(arg1:string):Promise<string>;
-
 export function Reverse(arg1:string):Promise<string>;

@@ -6,10 +6,6 @@ export function CheckString(arg1) {
   return window['go']['main']['App']['CheckString'](arg1);
 }
 
-export function Greet(arg1) {
-  return window['go']['main']['App']['Greet'](arg1);
-}
-
 export function Reverse(arg1) {
   return window['go']['main']['App']['Reverse'](arg1);
 }

@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"strings"
 )
 
@@ -22,19 +21,16 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-// Greet returns a greeting for the given name
-func (a *App) Greet(name string) string {
-	return fmt.Sprintf("Hello %s, It's show time!", name)
-}
-
 func (a *App) Reverse(str string) string {
-	runes := []rune(str)
-
-	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
-		runes[i], runes[j] = runes[j], runes[i]
+	words := strings.Fields(str)
+	for i, word := range words {
+		runes := []rune(word)
+		for j, k := 0, len(runes)-1; j < k; j, k = j+1, k-1 {
+			runes[j], runes[k] = runes[k], runes[j]
+		}
+		words[i] = string(runes)
 	}
-
-	return string(runes)
+	return strings.Join(words, " ")
 }
 
 func (a *App) CheckString(str string) string {
