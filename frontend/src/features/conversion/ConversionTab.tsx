@@ -3,30 +3,30 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import { Repetition } from "~/go/main/App";
+import { Convert } from "~/go/main/App";
 
-export function RepetitionTab() {
-    const [input, setInput] = useState("aabbcc")
+export function ConversionTab() {
+    const [input, setInput] = useState("1031")
     const [result, setResult] = useState("")
 
-    function repetition() {
-        Repetition(input).then((res) => setResult(res));
+    function convert() {
+        Convert(input).then((res) => setResult(res));
     }
 
     return (
         <Card>
           <CardHeader>
-            <CardTitle>Repetitive String</CardTitle>
+            <CardTitle>Convert String</CardTitle>
             <CardDescription>
-              Accepts strings that contain <i>x</i> amount of 'a', followed by an <i>x</i> amount of 'b', followed by an <i>x</i> amount of 'c'
+              Converts an octal string into a binary string
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="reverse-input">Input</Label>
-              <Input id="reverse-input" value={input} onChange={(e) => setInput(e.target.value)} />
+              <Input id="reverse-input" type="number" value={input} onChange={(e) => setInput(e.target.value)} />
             </div>
-            <Button className="w-full" onClick={repetition} disabled={!input.length}>Submit</Button>
+            <Button className="w-full" onClick={convert} disabled={!input.length}>Submit</Button>
             <div className="space-y-1">
               <Label htmlFor="output">Output</Label>
               <Input id="output" value={result} readOnly={true} />
@@ -36,4 +36,4 @@ export function RepetitionTab() {
     )
 }
 
-export default RepetitionTab
+export default ConversionTab

@@ -19,6 +19,7 @@ import { Validate, Reverse } from "../../wailsjs/go/main/App"
 import ReversalTab from "@/features/reversal/ReversalTab"
 import ValidationTab from "@/features/validation/ValidationTab"
 import RepetitionTab from "@/features/repetition/RepetitionTab"
+import ConversionTab from "@/features/conversion/ConversionTab"
 
 export enum TabsEnum {
     REVERSE = "REVERSE",
@@ -58,6 +59,9 @@ export function MainTab() {
       </TabsContent>
       <TabsContent value={TabsEnum.REPETITION}>
         <RepetitionTab />
+      </TabsContent>
+      <TabsContent value={TabsEnum.CONVERSION}>
+        <ConversionTab />
       </TabsContent>
     </Tabs>
   )

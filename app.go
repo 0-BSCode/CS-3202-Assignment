@@ -65,3 +65,7 @@ func (a *App) Repetition(str string) string {
 
 	return result
 }
+
+func (a *App) Convert(str string) string {
+	return "1"
+}
