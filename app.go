@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"regexp"
 	"strings"
 )
 
@@ -44,6 +45,21 @@ func (a *App) Validate(str string) string {
 	result := "NO"
 
 	if is_a_even && is_b_odd {
+		result = "YES"
+	}
+
+	return result
+}
+
+func (a *App) Repetition(str string) string {
+	a_count := strings.Count(str, "a")
+	b_count := strings.Count(str, "b")
+	c_count := strings.Count(str, "c")
+	r, _ := regexp.Compile("^(a*)(b*)(c*)$")
+
+	result := "NO"
+
+	if r.MatchString(str) && (a_count == b_count && b_count == c_count) {
 		result = "YES"
 	}
 

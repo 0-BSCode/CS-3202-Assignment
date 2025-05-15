@@ -18,6 +18,7 @@ import { useState } from "react"
 import { Validate, Reverse } from "../../wailsjs/go/main/App"
 import ReversalTab from "@/features/reversal/ReversalTab"
 import ValidationTab from "@/features/validation/ValidationTab"
+import RepetitionTab from "@/features/repetition/RepetitionTab"
 
 export enum TabsEnum {
     REVERSE = "REVERSE",
@@ -32,23 +33,11 @@ function formatTab(tabName: string): string {
 
 
 export function MainTab() {
-    const [reverseInput, setReverseInput] = useState("I LOVE AUTOMATA")
-    const [validateInput, setValidateInput] = useState("aabbb")
-    const [resultText, setResultText] = useState("");
     const [currentTab, setCurrentTab] = useState(TabsEnum.REVERSE);
 
     function switchTab(tab: TabsEnum) {
-        setResultText("");
         setCurrentTab(tab);
     }
-
-    function reverse() {
-            Reverse(reverseInput).then((result) => setResultText(result));
-    }
-
-    function checkString() {
-            Validate(validateInput).then(setResultText)
-        }
 
   return (
     <Tabs value={currentTab} className="w-[620px] py-4">
@@ -66,6 +55,9 @@ export function MainTab() {
       </TabsContent>
       <TabsContent value={TabsEnum.VALIDATE}>
         <ValidationTab />
+      </TabsContent>
+      <TabsContent value={TabsEnum.REPETITION}>
+        <RepetitionTab />
       </TabsContent>
     </Tabs>
   )
