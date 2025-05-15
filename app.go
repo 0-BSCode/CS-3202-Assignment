@@ -33,7 +33,7 @@ func (a *App) Reverse(str string) string {
 	return strings.Join(words, " ")
 }
 
-func (a *App) CheckString(str string) string {
+func (a *App) Validate(str string) string {
 	lowerstr := strings.ToLower(str)
 	a_count := strings.Count(lowerstr, "a")
 	b_count := strings.Count(lowerstr, "b")

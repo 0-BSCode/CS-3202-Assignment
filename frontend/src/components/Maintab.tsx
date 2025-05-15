@@ -15,8 +15,9 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { useState } from "react"
-import { CheckString, Reverse } from "../../wailsjs/go/main/App"
+import { Validate, Reverse } from "../../wailsjs/go/main/App"
 import ReversalTab from "@/features/reversal/ReversalTab"
+import ValidationTab from "@/features/validation/ValidationTab"
 
 export enum TabsEnum {
     REVERSE = "REVERSE",
@@ -46,7 +47,7 @@ export function MainTab() {
     }
 
     function checkString() {
-            CheckString(validateInput).then(setResultText)
+            Validate(validateInput).then(setResultText)
         }
 
   return (
@@ -64,25 +65,7 @@ export function MainTab() {
         <ReversalTab />
       </TabsContent>
       <TabsContent value={TabsEnum.VALIDATE}>
-        <Card>
-          <CardHeader>
-            <CardTitle>Validate String</CardTitle>
-            <CardDescription>
-              Enter a string and click "Submit" to check if it is valid. It's valid if the string has an even number of "a"'s and an odd number of "b"'s.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="validate-input">Input</Label>
-              <Input id="validate-input" value={validateInput} onChange={(e) => setValidateInput(e.target.value)}/>
-            </div>
-            <Button className="w-full" onClick={checkString} disabled={!validateInput.length}>Submit</Button>
-            <div className="space-y-1">
-              <Label htmlFor="new">Output</Label>
-              <Input id="new" value={resultText} readOnly />
-            </div>
-          </CardContent>
-        </Card>
+        <ValidationTab />
       </TabsContent>
     </Tabs>
   )
