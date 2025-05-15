@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/tabs"
 import { useState } from "react"
 import { CheckString, Reverse } from "../../wailsjs/go/main/App"
+import ReversalTab from "@/features/reversal/ReversalTab"
 
 export enum TabsEnum {
     REVERSE = "REVERSE",
@@ -60,25 +61,7 @@ export function MainTab() {
         }
       </TabsList>
       <TabsContent value={TabsEnum.REVERSE}>
-        <Card>
-          <CardHeader>
-            <CardTitle>Reverse String</CardTitle>
-            <CardDescription>
-              Enter a string and click "Submit" to output each word in reverse.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="reverse-input">Input</Label>
-              <Input id="reverse-input" value={reverseInput} onChange={(e) => setReverseInput(e.target.value)} />
-            </div>
-            <Button className="w-full" onClick={reverse} disabled={!reverseInput.length}>Submit</Button>
-            <div className="space-y-1">
-              <Label htmlFor="output">Output</Label>
-              <Input id="output" value={resultText} readOnly={true} />
-            </div>
-          </CardContent>
-        </Card>
+        <ReversalTab />
       </TabsContent>
       <TabsContent value={TabsEnum.VALIDATE}>
         <Card>
