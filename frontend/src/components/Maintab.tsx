@@ -20,6 +20,12 @@ import { CheckString, Reverse } from "../../wailsjs/go/main/App"
 export enum TabsEnum {
     REVERSE = "REVERSE",
     VALIDATE = "VALIDATE",
+    REPETITION = "REPETITION",
+    CONVERSION = "CONVERSION"
+}
+
+function formatTab(tabName: string): string {
+  return tabName[0].toUpperCase() + tabName.slice(1).toLowerCase()
 }
 
 
@@ -43,10 +49,15 @@ export function MainTab() {
         }
 
   return (
-    <Tabs value={currentTab} className="w-[400px] py-4">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value={TabsEnum.REVERSE} onClick={() => switchTab(TabsEnum.REVERSE)}>Reverse</TabsTrigger>
-        <TabsTrigger value={TabsEnum.VALIDATE} onClick={() => switchTab(TabsEnum.VALIDATE)}>Validate</TabsTrigger>
+    <Tabs value={currentTab} className="w-[620px] py-4">
+      <TabsList className="grid w-full grid-cols-4">
+        {
+          Object.keys(TabsEnum).map((tab) => (
+            <TabsTrigger key={tab} value={TabsEnum[tab as keyof typeof TabsEnum]} onClick={() => switchTab(TabsEnum[tab as keyof typeof TabsEnum])}>
+              {formatTab(tab)}
+            </TabsTrigger>
+          ))
+        }
       </TabsList>
       <TabsContent value={TabsEnum.REVERSE}>
         <Card>
