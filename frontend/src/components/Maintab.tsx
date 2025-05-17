@@ -1,13 +1,3 @@
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Tabs,
   TabsContent,
@@ -15,7 +5,6 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { useState } from "react"
-import { Validate, Reverse } from "../../wailsjs/go/main/App"
 import ReversalTab from "@/features/reversal/ReversalTab"
 import ValidationTab from "@/features/validation/ValidationTab"
 import RepetitionTab from "@/features/repetition/RepetitionTab"
