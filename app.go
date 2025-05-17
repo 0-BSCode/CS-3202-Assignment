@@ -67,6 +67,12 @@ func (a *App) Repetition(str string) string {
 }
 
 func (a *App) Convert(str string) string {
+
+	// Edge case where input is 0
+	if str == "0" {
+		return "0"
+	}
+
 	result := ""
 
 	for _, char := range str {
@@ -92,7 +98,7 @@ func (a *App) Convert(str string) string {
 
 		result = result + value
 	}
-
 	result = strings.TrimLeft(result, "0")
+
 	return result
 }
