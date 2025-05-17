@@ -67,5 +67,32 @@ func (a *App) Repetition(str string) string {
 }
 
 func (a *App) Convert(str string) string {
-	return "1"
+	result := ""
+
+	for _, char := range str {
+		value := ""
+		switch {
+		case char == '0':
+			value = "000"
+		case char == '1':
+			value = "001"
+		case char == '2':
+			value = "010"
+		case char == '3':
+			value = "011"
+		case char == '4':
+			value = "100"
+		case char == '5':
+			value = "101"
+		case char == '6':
+			value = "110"
+		case char == '7':
+			value = "111"
+		}
+
+		result = result + value
+	}
+
+	result = strings.TrimLeft(result, "0")
+	return result
 }
